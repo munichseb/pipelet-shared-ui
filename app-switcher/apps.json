@@ -12,10 +12,10 @@
     {
       "id": "cpms",
       "label": "CPMS Backend",
-      "url": null,
+      "url": "https://cpms.pipelet.com",
       "icon": "agent-unique-code",
-      "active": false,
-      "hosts": []
+      "active": true,
+      "hosts": ["cpms.pipelet.com"]
     },
     {
       "id": "home",
@@ -36,10 +36,10 @@
     {
       "id": "edge-ai",
       "label": "Edge AI Dashboard",
-      "url": null,
+      "url": "https://edge.pipelet.com",
       "icon": "bot",
-      "active": false,
-      "hosts": []
+      "active": true,
+      "hosts": ["edge.pipelet.com"]
     },
     {
       "id": "studio",
