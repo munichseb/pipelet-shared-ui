@@ -159,6 +159,21 @@
     -webkit-box-orient: vertical;
 }
 
+/* "Pro only" badge under disabled tile labels */
+.pipelet-switcher-tile-badge {
+    display: inline-block;
+    margin-top: 2px;
+    padding: 1px 6px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--warning-700, #7d4705);
+    background: var(--warning-50, #ffebc2);
+    border-radius: 3px;
+    line-height: 1.4;
+}
+
 /* Disabled state (grayed-out, not clickable) */
 .pipelet-switcher-tile.is-disabled {
     cursor: not-allowed;
