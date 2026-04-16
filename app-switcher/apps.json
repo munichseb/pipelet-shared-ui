@@ -21,7 +21,7 @@
       "id": "home",
       "label": "Home Charging",
       "url": "https://driver.pipelet.com",
-      "icon": "contact-card",
+      "icon": "home",
       "active": true,
       "hosts": ["driver.pipelet.com", "vehicle.pipelet.com"]
     },
