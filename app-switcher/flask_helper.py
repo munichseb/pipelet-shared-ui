@@ -57,16 +57,19 @@ def register_app_switcher(
     except (FileNotFoundError, json.JSONDecodeError):
         apps = []
 
-    # 2. Make the shared-ui templates reachable via {% include %}.
-    # We wire up an extra Jinja loader that resolves `shared-ui/...`
-    # paths against the on-disk location.
-    from jinja2 import ChoiceLoader, FileSystemLoader
+    # 2. Make the shared-ui templates reachable as `shared-ui/...`.
+    # PrefixLoader ensures the include path matches exactly what the
+    # README documents, regardless of the on-disk directory name
+    # (which differs between dev symlink and prod rsync).
+    from jinja2 import ChoiceLoader, FileSystemLoader, PrefixLoader
 
-    app_switcher_loader = FileSystemLoader(str(base.parent))  # parent of app-switcher/
+    shared_ui_loader = PrefixLoader({
+        "shared-ui": FileSystemLoader(str(base.parent)),
+    })
     if app.jinja_loader is None:
-        app.jinja_loader = app_switcher_loader
+        app.jinja_loader = shared_ui_loader
     else:
-        app.jinja_loader = ChoiceLoader([app.jinja_loader, app_switcher_loader])
+        app.jinja_loader = ChoiceLoader([app.jinja_loader, shared_ui_loader])
 
     # 3. Context processor — inject apps + current host into every template
     @app.context_processor
