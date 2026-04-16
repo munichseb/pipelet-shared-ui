@@ -5,7 +5,7 @@
       "id": "broker",
       "label": "OCPP Broker",
       "url": "https://broker.pipelet.com",
-      "icon": "connect",
+      "icon": "split-view",
       "active": true,
       "hosts": ["broker.pipelet.com"]
     },
@@ -61,7 +61,7 @@
       "id": "www",
       "label": "Pipelet.com",
       "url": "https://pipelet.com",
-      "icon": "home",
+      "icon": "pipelet-logo",
       "active": true,
       "hosts": ["pipelet.com", "www.pipelet.com"]
     }

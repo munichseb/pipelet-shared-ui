@@ -45,8 +45,8 @@
     width: 22px;
     height: 22px;
     background: currentColor;
-    mask: url("/static/shared-ui/app-switcher/icons/align-filled.svg") no-repeat center / contain;
-    -webkit-mask: url("/static/shared-ui/app-switcher/icons/align-filled.svg") no-repeat center / contain;
+    mask: url("/static/shared-ui/app-switcher/icons/align-bold.svg") no-repeat center / contain;
+    -webkit-mask: url("/static/shared-ui/app-switcher/icons/align-bold.svg") no-repeat center / contain;
 }
 
 /* ----- Panel (floating card below trigger) ----- */
