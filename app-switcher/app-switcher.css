@@ -1,0 +1,184 @@
+/* ================================================================
+   Pipelet App-Switcher — shared UI component
+   All selectors prefixed .pipelet-switcher-* to avoid app style
+   collisions. No external dependencies; inherits theme via the
+   --brand / --accent vars if present, otherwise uses Momentum fallback.
+   ================================================================ */
+
+.pipelet-switcher {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* ----- Trigger button (waffle icon next to brand) ----- */
+.pipelet-switcher-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--color-text-secondary, rgba(0,0,0,0.62));
+    cursor: pointer;
+    transition: background 120ms, color 120ms, border-color 120ms;
+    font-family: inherit;
+}
+.pipelet-switcher-trigger:hover {
+    background: rgba(0,0,0,0.04);
+    color: var(--color-text-primary, rgba(0,0,0,0.92));
+}
+.pipelet-switcher-trigger:focus-visible {
+    outline: none;
+    border-color: var(--brand-500, #1170cf);
+    box-shadow: 0 0 0 3px rgba(17,112,207,0.15);
+}
+.pipelet-switcher[data-open="true"] .pipelet-switcher-trigger {
+    background: rgba(0,0,0,0.06);
+    color: var(--color-text-primary, rgba(0,0,0,0.92));
+}
+
+.pipelet-switcher-trigger-icon {
+    width: 22px;
+    height: 22px;
+    background: currentColor;
+    mask: url("/static/shared-ui/app-switcher/icons/apps.svg") no-repeat center / contain;
+    -webkit-mask: url("/static/shared-ui/app-switcher/icons/apps.svg") no-repeat center / contain;
+}
+
+/* ----- Panel (floating card below trigger) ----- */
+.pipelet-switcher-panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    z-index: 1000;
+    width: 360px;
+    padding: 16px 14px 18px;
+    background: var(--color-bg-primary, #ffffff);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 14px;
+    box-shadow: 0 10px 32px rgba(0,0,0,0.14), 0 2px 6px rgba(0,0,0,0.06);
+    /* simple open/close animation */
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 140ms ease-out, transform 140ms ease-out;
+    pointer-events: none;
+}
+.pipelet-switcher-panel[hidden] {
+    display: none;
+}
+.pipelet-switcher[data-open="true"] .pipelet-switcher-panel {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.pipelet-switcher-panel-header {
+    padding: 4px 8px 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    margin-bottom: 8px;
+}
+.pipelet-switcher-panel-title {
+    font-family: 'GT Alpina', 'Fraunces', 'Times New Roman', serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.1px;
+    color: var(--color-text-primary, rgba(0,0,0,0.92));
+}
+
+/* ----- Tile grid (3 columns) ----- */
+.pipelet-switcher-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+}
+
+/* Tile — both <a> and <span> variants share the same layout */
+.pipelet-switcher-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 14px 8px 12px;
+    min-height: 96px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--color-text-primary, rgba(0,0,0,0.92));
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 1.25;
+    text-align: center;
+    transition: background 120ms, transform 120ms;
+    cursor: pointer;
+}
+.pipelet-switcher-tile:hover {
+    background: rgba(17,112,207,0.06);
+}
+.pipelet-switcher-tile:focus-visible {
+    outline: none;
+    background: rgba(17,112,207,0.08);
+    box-shadow: inset 0 0 0 2px var(--brand-500, #1170cf);
+}
+.pipelet-switcher-tile:active:not(.is-disabled) {
+    transform: translateY(1px);
+}
+
+.pipelet-switcher-tile-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--brand-500, #1170cf);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+    flex-shrink: 0;
+}
+
+.pipelet-switcher-tile-label {
+    font-weight: 500;
+    color: var(--color-text-primary, rgba(0,0,0,0.92));
+    max-width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/* Disabled state (grayed-out, not clickable) */
+.pipelet-switcher-tile.is-disabled {
+    cursor: not-allowed;
+    opacity: 0.42;
+}
+.pipelet-switcher-tile.is-disabled:hover {
+    background: transparent;
+}
+.pipelet-switcher-tile.is-disabled .pipelet-switcher-tile-icon {
+    background: var(--color-text-quaternary, rgba(0,0,0,0.40));
+}
+
+/* Current app — subtle highlight, no navigation */
+.pipelet-switcher-tile.is-current {
+    background: rgba(17,112,207,0.10);
+    cursor: default;
+}
+.pipelet-switcher-tile.is-current:hover {
+    background: rgba(17,112,207,0.10);
+}
+
+/* ----- Mobile — panel full-width below trigger ----- */
+@media (max-width: 480px) {
+    .pipelet-switcher-panel {
+        position: fixed;
+        top: 56px;
+        left: 8px;
+        right: 8px;
+        width: auto;
+    }
+}

@@ -1,0 +1,69 @@
+{
+  "version": "0.1.0",
+  "apps": [
+    {
+      "id": "broker",
+      "label": "OCPP Broker",
+      "url": "https://broker.pipelet.com",
+      "icon": "connect",
+      "active": true,
+      "hosts": ["broker.pipelet.com"]
+    },
+    {
+      "id": "cpms",
+      "label": "CPMS Backend",
+      "url": null,
+      "icon": "agent-unique-code",
+      "active": false,
+      "hosts": []
+    },
+    {
+      "id": "home",
+      "label": "Home Charging",
+      "url": "https://driver.pipelet.com",
+      "icon": "contact-card",
+      "active": true,
+      "hosts": ["driver.pipelet.com", "vehicle.pipelet.com"]
+    },
+    {
+      "id": "sim",
+      "label": "OCPP Charger Simulator",
+      "url": "https://sim.pipelet.com",
+      "icon": "usb",
+      "active": true,
+      "hosts": ["sim.pipelet.com"]
+    },
+    {
+      "id": "edge-ai",
+      "label": "Edge AI Dashboard",
+      "url": null,
+      "icon": "bot",
+      "active": false,
+      "hosts": []
+    },
+    {
+      "id": "studio",
+      "label": "Automation Studio",
+      "url": null,
+      "icon": "custom-code-editor",
+      "active": false,
+      "hosts": ["studio.pipelet.com"]
+    },
+    {
+      "id": "developer",
+      "label": "Developer Portal",
+      "url": "https://developer.pipelet.com",
+      "icon": "code-block",
+      "active": true,
+      "hosts": ["developer.pipelet.com"]
+    },
+    {
+      "id": "www",
+      "label": "Pipelet.com",
+      "url": "https://pipelet.com",
+      "icon": "home",
+      "active": true,
+      "hosts": ["pipelet.com", "www.pipelet.com"]
+    }
+  ]
+}
