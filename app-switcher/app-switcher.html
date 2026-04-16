@@ -1,10 +1,11 @@
 {#-
   Pipelet App-Switcher — shared across all Pipelet portals.
-  Requires `pipelet_apps` in the template context: list of dicts loaded
-  from shared-ui/app-switcher/apps.json (see deploy/sync-to-app.sh).
-  The current host is passed as `pipelet_current_host` so the active
-  app gets highlighted.
+  Requires in the template context (injected by flask_helper):
+    pipelet_apps              — list of dicts loaded from apps.json
+    pipelet_current_host      — host name of the current request
+    pipelet_switcher_asset_url — URL prefix for CSS/JS/icon assets
 -#}
+{%- set _asset = pipelet_switcher_asset_url or "/static/shared-ui/app-switcher" -%}
 <div class="pipelet-switcher" id="pipelet-switcher">
     <button type="button"
             class="pipelet-switcher-trigger"
@@ -12,7 +13,8 @@
             aria-label="App-Switcher öffnen"
             aria-expanded="false"
             aria-controls="pipelet-switcher-panel">
-        <span class="pipelet-switcher-trigger-icon"></span>
+        <span class="pipelet-switcher-trigger-icon"
+              style="mask-image:url('{{ _asset }}/icons/align-bold.svg');-webkit-mask-image:url('{{ _asset }}/icons/align-bold.svg');"></span>
     </button>
 
     <div class="pipelet-switcher-panel"
@@ -31,7 +33,7 @@
                href="{{ app.url }}"
                data-app-id="{{ app.id }}">
                 <span class="pipelet-switcher-tile-icon"
-                      style="mask-image:url('/static/shared-ui/app-switcher/icons/{{ app.icon }}.svg');-webkit-mask-image:url('/static/shared-ui/app-switcher/icons/{{ app.icon }}.svg');"></span>
+                      style="mask-image:url('{{ _asset }}/icons/{{ app.icon }}.svg');-webkit-mask-image:url('{{ _asset }}/icons/{{ app.icon }}.svg');"></span>
                 <span class="pipelet-switcher-tile-label">{{ app.label }}</span>
             </a>
             {%- else %}
@@ -39,7 +41,7 @@
                   data-app-id="{{ app.id }}"
                   {% if is_current %}aria-current="page"{% else %}aria-disabled="true"{% endif %}>
                 <span class="pipelet-switcher-tile-icon"
-                      style="mask-image:url('/static/shared-ui/app-switcher/icons/{{ app.icon }}.svg');-webkit-mask-image:url('/static/shared-ui/app-switcher/icons/{{ app.icon }}.svg');"></span>
+                      style="mask-image:url('{{ _asset }}/icons/{{ app.icon }}.svg');-webkit-mask-image:url('{{ _asset }}/icons/{{ app.icon }}.svg');"></span>
                 <span class="pipelet-switcher-tile-label">{{ app.label }}</span>
                 {%- if not app.active and not is_current %}
                 <span class="pipelet-switcher-tile-badge">Pro only</span>
