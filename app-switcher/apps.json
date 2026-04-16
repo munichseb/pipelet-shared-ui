@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "apps": [
     {
       "id": "broker",
@@ -18,6 +18,14 @@
       "hosts": ["cpms.pipelet.com"]
     },
     {
+      "id": "emp",
+      "label": "EMP Backend",
+      "url": "https://emp.pipelet.com",
+      "icon": "purchase-order",
+      "active": false,
+      "hosts": ["emp.pipelet.com"]
+    },
+    {
       "id": "home",
       "label": "Home Charging",
       "url": "https://driver.pipelet.com",
@@ -32,6 +40,14 @@
       "icon": "usb",
       "active": true,
       "hosts": ["sim.pipelet.com"]
+    },
+    {
+      "id": "empsim",
+      "label": "EMP Simulator",
+      "url": "https://empsim.pipelet.com",
+      "icon": "shopping-cart",
+      "active": true,
+      "hosts": ["empsim.pipelet.com"]
     },
     {
       "id": "edge-ai",
