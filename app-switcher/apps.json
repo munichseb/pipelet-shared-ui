@@ -21,7 +21,7 @@
       "id": "emp",
       "label": "EMP Backend",
       "url": "https://emp.pipelet.com",
-      "icon": "purchase-order",
+      "icon": "document-share",
       "active": false,
       "hosts": ["emp.pipelet.com"]
     },
@@ -45,7 +45,7 @@
       "id": "empsim",
       "label": "EMP Simulator",
       "url": "https://empsim.pipelet.com",
-      "icon": "shopping-cart",
+      "icon": "contact-card",
       "active": true,
       "hosts": ["empsim.pipelet.com"]
     },
