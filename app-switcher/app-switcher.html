@@ -28,9 +28,10 @@
         <div class="pipelet-switcher-grid">
         {%- for app in pipelet_apps %}
             {%- set is_current = pipelet_current_host and pipelet_current_host in (app.hosts or []) %}
+            {%- set tile_href = (pipelet_apps_sso_urls or {}).get(app.id) or app.url %}
             {%- if app.active and not is_current %}
             <a class="pipelet-switcher-tile"
-               href="{{ app.url }}"
+               href="{{ tile_href }}"
                data-app-id="{{ app.id }}">
                 <span class="pipelet-switcher-tile-icon"
                       style="mask-image:url('{{ _asset }}/icons/{{ app.icon }}.svg');-webkit-mask-image:url('{{ _asset }}/icons/{{ app.icon }}.svg');"></span>

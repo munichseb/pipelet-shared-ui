@@ -8,6 +8,7 @@
       "icon": "split-view",
       "active": true,
       "pro": true,
+      "sso": true,
       "hosts": ["broker.pipelet.com"]
     },
     {
@@ -17,6 +18,7 @@
       "icon": "agent-unique-code",
       "active": true,
       "pro": true,
+      "sso": true,
       "hosts": ["cpms.pipelet.com"]
     },
     {
@@ -25,6 +27,7 @@
       "url": "https://emp.pipelet.com",
       "icon": "contact-card-filled",
       "active": true,
+      "sso": true,
       "hosts": ["emp.pipelet.com"]
     },
     {
@@ -34,6 +37,7 @@
       "icon": "home",
       "active": true,
       "pro": true,
+      "sso": true,
       "hosts": ["driver.pipelet.com", "vehicle.pipelet.com"]
     },
     {
@@ -42,6 +46,7 @@
       "url": "https://sim.pipelet.com",
       "icon": "usb",
       "active": true,
+      "sso": true,
       "hosts": ["sim.pipelet.com"]
     },
     {
@@ -59,6 +64,7 @@
       "icon": "car",
       "active": true,
       "pro": true,
+      "sso": true,
       "hosts": ["fleet.pipelet.com"]
     },
     {
@@ -67,6 +73,7 @@
       "url": "https://edge.pipelet.com",
       "icon": "bot",
       "active": true,
+      "sso": true,
       "hosts": ["edge.pipelet.com"]
     },
     {

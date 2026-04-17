@@ -48,6 +48,9 @@ def register_app_switcher(
     switcher_dir: Path | None = None,
     template_subdir: str = "shared-ui/app-switcher",
     static_url: str = _DEFAULT_STATIC_URL,
+    current_user_email_fn=None,
+    sso_secret: str = "",
+    sso_issuer: str = "",
 ) -> None:
     """Register the App-Switcher with a Flask app.
 
@@ -61,6 +64,16 @@ def register_app_switcher(
             under a URL prefix (e.g. /driver/), pass
             `/driver/static/shared-ui/app-switcher` so the CSS/icon URLs
             emitted by the shared template resolve correctly.
+        current_user_email_fn: optional ``() -> str | None`` callback that
+            returns the currently-authenticated user's email within a
+            request context. When provided together with ``sso_secret``,
+            each tile's href gets rewritten to a signed ``/auth/sso``
+            URL so click-through stays logged in across portals.
+        sso_secret: shared HMAC secret (same value on every portal).
+            Without it, SSO link-rewriting is silently disabled and tiles
+            fall back to their plain ``app.url``.
+        sso_issuer: optional portal id of the source (e.g. ``"sim"``),
+            stamped into tokens for audit. Purely informational.
     """
     base = switcher_dir or _default_switcher_dir()
 
@@ -91,7 +104,53 @@ def register_app_switcher(
     # Normalize the static URL (no trailing slash)
     static_url = static_url.rstrip("/")
 
-    # 3. Context processor — inject apps + current host + URL prefix
+    # 3. SSO signer (optional — only when both secret + email-fn provided)
+    _sso_enabled = bool(sso_secret) and callable(current_user_email_fn)
+    _sso_sign = None
+    if _sso_enabled:
+        try:
+            import importlib.util
+            _spec = importlib.util.spec_from_file_location(
+                "pipelet_sso", str(base / "sso.py")
+            )
+            _sso_mod = importlib.util.module_from_spec(_spec)
+            _spec.loader.exec_module(_sso_mod)
+            _sso_sign = _sso_mod.sign
+        except Exception:
+            _sso_enabled = False
+            _sso_sign = None
+
+    def _build_sso_urls(apps_list):
+        """Per-request: for each SSO-capable app, return a signed /auth/sso URL.
+
+        An app participates only if its apps.json entry has ``"sso": true`` —
+        tells us the target portal implements the verify endpoint. Apps
+        without this flag (static sites, portals without email auth) keep
+        their plain ``app.url`` via the template fallback.
+        """
+        if not _sso_enabled:
+            return {}
+        try:
+            email = current_user_email_fn()
+        except Exception:
+            email = None
+        if not email:
+            return {}
+        out = {}
+        for a in apps_list:
+            if not a.get("active") or not a.get("sso"):
+                continue
+            base_url = a.get("url")
+            if not base_url:
+                continue
+            try:
+                tok = _sso_sign(email, a["id"], sso_secret, iss=sso_issuer)
+            except Exception:
+                continue
+            out[a["id"]] = base_url.rstrip("/") + "/auth/sso?t=" + tok
+        return out
+
+    # 4. Context processor — inject apps + current host + URL prefix + SSO URLs
     @app.context_processor
     def _inject_pipelet_switcher():
         host = ""
@@ -106,4 +165,5 @@ def register_app_switcher(
             "pipelet_current_host": host,
             "pipelet_switcher_version": version,
             "pipelet_switcher_asset_url": static_url,
+            "pipelet_apps_sso_urls": _build_sso_urls(apps),
         }
