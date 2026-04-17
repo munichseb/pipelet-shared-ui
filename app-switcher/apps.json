@@ -50,6 +50,14 @@
       "hosts": ["empsim.pipelet.com"]
     },
     {
+      "id": "fleet",
+      "label": "Fleet Portal",
+      "url": "https://fleet.pipelet.com",
+      "icon": "car",
+      "active": true,
+      "hosts": ["fleet.pipelet.com"]
+    },
+    {
       "id": "edge-ai",
       "label": "Edge AI Dashboard",
       "url": "https://edge.pipelet.com",
