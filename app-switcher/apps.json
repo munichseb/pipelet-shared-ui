@@ -7,6 +7,7 @@
       "url": "https://broker.pipelet.com",
       "icon": "split-view",
       "active": true,
+      "pro": true,
       "hosts": ["broker.pipelet.com"]
     },
     {
@@ -22,7 +23,8 @@
       "label": "EMP Backend",
       "url": "https://emp.pipelet.com",
       "icon": "document-share",
-      "active": false,
+      "active": true,
+      "pro": true,
       "hosts": ["emp.pipelet.com"]
     },
     {
@@ -43,7 +45,7 @@
     },
     {
       "id": "empsim",
-      "label": "EMP Simulator",
+      "label": "EMP Simulator (OCPP)",
       "url": "https://empsim.pipelet.com",
       "icon": "contact-card",
       "active": true,
@@ -68,9 +70,10 @@
     {
       "id": "studio",
       "label": "Automation Studio",
-      "url": null,
+      "url": "https://studio.pipelet.com",
       "icon": "custom-code-editor",
-      "active": false,
+      "active": true,
+      "pro": true,
       "hosts": ["studio.pipelet.com"]
     },
     {

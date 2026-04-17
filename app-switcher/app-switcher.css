@@ -165,7 +165,7 @@
     -webkit-box-orient: vertical;
 }
 
-/* "Pro only" badge under disabled tile labels */
+/* "Pro" badge under tile labels (independent of active state) */
 .pipelet-switcher-tile-badge {
     display: inline-block;
     margin-top: 2px;
