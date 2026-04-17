@@ -79,6 +79,15 @@
       "hosts": ["studio.pipelet.com"]
     },
     {
+      "id": "monitoring",
+      "label": "Monitoring & Ops",
+      "url": "https://monitor.pipelet.com",
+      "icon": "analysis-bold",
+      "active": true,
+      "pro": true,
+      "hosts": ["monitor.pipelet.com"]
+    },
+    {
       "id": "developer",
       "label": "Developer Portal",
       "url": "https://developer.pipelet.com",
@@ -93,15 +102,6 @@
       "icon": "pipelet-logo",
       "active": true,
       "hosts": ["pipelet.com", "www.pipelet.com"]
-    },
-    {
-      "id": "monitoring",
-      "label": "Monitoring & Ops",
-      "url": "https://monitor.pipelet.com",
-      "icon": "analysis-bold",
-      "active": true,
-      "pro": true,
-      "hosts": ["monitor.pipelet.com"]
     }
   ]
 }
