@@ -58,11 +58,12 @@
       "url": "https://fleet.pipelet.com",
       "icon": "car",
       "active": true,
+      "pro": true,
       "hosts": ["fleet.pipelet.com"]
     },
     {
       "id": "edge-ai",
-      "label": "Edge AI Dashboard",
+      "label": "Edge AI Controller",
       "url": "https://edge.pipelet.com",
       "icon": "bot",
       "active": true,
@@ -92,6 +93,15 @@
       "icon": "pipelet-logo",
       "active": true,
       "hosts": ["pipelet.com", "www.pipelet.com"]
+    },
+    {
+      "id": "monitoring",
+      "label": "Monitoring & Ops",
+      "url": "https://monitoring.pipelet.com",
+      "icon": "analysis-bold",
+      "active": true,
+      "pro": true,
+      "hosts": ["monitoring.pipelet.com"]
     }
   ]
 }
