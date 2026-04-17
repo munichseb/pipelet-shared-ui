@@ -97,11 +97,11 @@
     {
       "id": "monitoring",
       "label": "Monitoring & Ops",
-      "url": "https://monitoring.pipelet.com",
+      "url": "https://monitor.pipelet.com",
       "icon": "analysis-bold",
       "active": true,
       "pro": true,
-      "hosts": ["monitoring.pipelet.com"]
+      "hosts": ["monitor.pipelet.com"]
     }
   ]
 }
