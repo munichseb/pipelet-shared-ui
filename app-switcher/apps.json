@@ -16,6 +16,7 @@
       "url": "https://cpms.pipelet.com",
       "icon": "agent-unique-code",
       "active": true,
+      "pro": true,
       "hosts": ["cpms.pipelet.com"]
     },
     {
@@ -24,7 +25,6 @@
       "url": "https://emp.pipelet.com",
       "icon": "contact-card-filled",
       "active": true,
-      "pro": true,
       "hosts": ["emp.pipelet.com"]
     },
     {
@@ -33,6 +33,7 @@
       "url": "https://driver.pipelet.com",
       "icon": "home",
       "active": true,
+      "pro": true,
       "hosts": ["driver.pipelet.com", "vehicle.pipelet.com"]
     },
     {
