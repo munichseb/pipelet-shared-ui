@@ -80,11 +80,10 @@
     },
     {
       "id": "monitoring",
-      "label": "Monitoring & Ops",
+      "label": "Monitoring",
       "url": "https://monitor.pipelet.com",
       "icon": "analysis-bold",
       "active": true,
-      "pro": true,
       "hosts": ["monitor.pipelet.com"]
     },
     {
