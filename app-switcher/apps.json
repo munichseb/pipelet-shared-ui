@@ -22,7 +22,7 @@
       "id": "emp",
       "label": "EMP Backend",
       "url": "https://emp.pipelet.com",
-      "icon": "document-share",
+      "icon": "contact-card-filled",
       "active": true,
       "pro": true,
       "hosts": ["emp.pipelet.com"]
