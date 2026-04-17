@@ -99,6 +99,7 @@
       "url": "https://developer.pipelet.com",
       "icon": "code-block",
       "active": true,
+      "sso": true,
       "hosts": ["developer.pipelet.com"]
     },
     {
