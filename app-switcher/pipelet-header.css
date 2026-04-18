@@ -1,0 +1,296 @@
+/* ================================================================
+   Pipelet Header - shared UI skin
+   Shared visual contract for #app-header, top nav, and preferences.
+   Keep behaviour in each app; keep appearance here.
+   ================================================================ */
+
+#app-header {
+    background: var(--color-bg-glass, rgba(255,255,255,0.82));
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    color: var(--color-text-primary, rgba(0,0,0,0.92));
+    padding: 0 var(--spacing-3xl, 24px);
+    height: 56px;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--color-border-secondary, rgba(0,0,0,0.08));
+}
+
+#app-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #c49a6c, var(--brand-500, #1170cf) 50%, #c49a6c);
+}
+
+#app-header .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    gap: var(--spacing-lg, 12px);
+}
+
+#app-header .header-left,
+#app-header .header-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg, 12px);
+    min-width: 0;
+}
+
+#app-header > .header-right {
+    margin-left: auto;
+}
+
+#app-header .header-brand,
+#app-header a.header-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-lg, 12px);
+    min-width: 0;
+    color: inherit;
+    text-decoration: none;
+}
+
+#app-header .header-icon,
+#app-header .header-logo,
+#app-header .topbar-brand-logo {
+    width: auto;
+    height: 22px;
+    color: var(--color-text-primary, rgba(0,0,0,0.92));
+    flex-shrink: 0;
+}
+
+#app-header h1 {
+    font-family: var(--font-family-serif, var(--font-family, Inter, system-ui, sans-serif));
+    font-size: var(--text-lg, 18px);
+    font-weight: var(--font-weight-medium, 500);
+    letter-spacing: 0;
+    color: var(--color-text-primary, rgba(0,0,0,0.92));
+    margin: 0;
+    line-height: 1.2;
+    min-width: 0;
+}
+
+#app-header h1 em {
+    font-style: italic;
+    font-weight: var(--font-weight-bold, 700);
+}
+
+#app-header .header-device {
+    font-size: 11px;
+    color: var(--color-text-quaternary, rgba(0,0,0,0.40));
+    font-weight: 400;
+    margin-left: 8px;
+    align-self: center;
+}
+
+#app-header nav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs, 4px);
+    min-width: 0;
+}
+
+#app-header .nav-link,
+#app-header nav a {
+    color: var(--color-text-secondary, rgba(0,0,0,0.62));
+    text-decoration: none;
+    padding: var(--spacing-md, 8px) var(--spacing-lg, 12px);
+    border-radius: var(--radius-sm, 6px);
+    font-size: var(--text-sm, 14px);
+    font-weight: var(--font-weight-medium, 500);
+    line-height: 1.35;
+    white-space: nowrap;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+#app-header .nav-link:hover,
+#app-header nav a:hover {
+    color: var(--color-text-primary, rgba(0,0,0,0.92));
+    background: var(--color-bg-active, rgba(0,0,0,0.04));
+}
+
+#app-header .nav-link.active,
+#app-header nav a.active {
+    color: var(--color-text-primary, rgba(0,0,0,0.92));
+    background: var(--color-bg-active, rgba(0,0,0,0.06));
+    font-weight: var(--font-weight-semibold, 600);
+}
+
+.prefs-dropdown {
+    position: relative;
+    display: inline-flex;
+    flex-shrink: 0;
+}
+
+.prefs-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 34px;
+    padding: 0 10px;
+    border: 1px solid var(--color-border-secondary, rgba(0,0,0,0.08));
+    border-radius: var(--radius-md, 8px);
+    background: transparent;
+    color: var(--color-text-secondary, rgba(0,0,0,0.62));
+    cursor: pointer;
+    font-family: inherit;
+    font-size: var(--text-sm, 14px);
+    font-weight: var(--font-weight-semibold, 600);
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.prefs-toggle:hover,
+.prefs-toggle[aria-expanded="true"] {
+    background: var(--color-bg-active, rgba(0,0,0,0.04));
+    color: var(--color-text-primary, rgba(0,0,0,0.92));
+    border-color: var(--color-border-primary, rgba(0,0,0,0.14));
+}
+
+.prefs-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 6px);
+    min-width: 160px;
+    max-width: calc(100vw - 16px);
+    background: var(--color-bg-primary, #ffffff);
+    border: 1px solid var(--color-border, rgba(0,0,0,0.12));
+    border-radius: var(--radius-lg, 10px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    z-index: 1000;
+    padding: var(--spacing-xs, 4px) 0;
+}
+
+.prefs-menu.open {
+    display: block;
+}
+
+.prefs-section {
+    padding: 2px 0;
+}
+
+.prefs-section-label {
+    padding: 4px 14px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    color: var(--color-text-tertiary, rgba(0,0,0,0.52));
+}
+
+.prefs-user,
+.prefs-section-user {
+    padding: 8px 14px 4px;
+}
+
+.prefs-user-email,
+.prefs-user-name {
+    font-size: 12px;
+    font-weight: var(--font-weight-semibold, 600);
+    color: var(--color-text-primary, rgba(0,0,0,0.92));
+    word-break: break-all;
+}
+
+.prefs-user-role,
+.prefs-user-label {
+    font-size: 11px;
+    color: var(--color-text-tertiary, rgba(0,0,0,0.52));
+    margin-top: 2px;
+}
+
+.prefs-divider {
+    height: 1px;
+    background: var(--color-border, rgba(0,0,0,0.12));
+    margin: 4px 0;
+}
+
+.prefs-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 7px 14px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: var(--text-sm, 14px);
+    color: var(--color-text-quaternary, rgba(0,0,0,0.40));
+    text-align: left;
+    transition: background 0.1s ease, color 0.1s ease;
+}
+
+.prefs-item:hover {
+    background: var(--color-bg-secondary, rgba(0,0,0,0.04));
+    color: var(--color-text-primary, rgba(0,0,0,0.92));
+}
+
+.prefs-item.active {
+    color: var(--color-text-primary, rgba(0,0,0,0.92));
+    font-weight: 600;
+}
+
+.prefs-item.active::after {
+    content: "\2713";
+    margin-left: auto;
+    font-size: 0.85em;
+    color: var(--brand-500, #1170cf);
+}
+
+.prefs-item-danger,
+.prefs-item--danger {
+    color: var(--error-500, #db1f2e);
+}
+
+.prefs-item-danger:hover,
+.prefs-item--danger:hover {
+    background: var(--color-bg-error-subtle, rgba(219,31,46,0.08));
+    color: var(--error-500, #db1f2e);
+}
+
+@media (max-width: 900px) {
+    #app-header {
+        height: auto;
+        padding: var(--spacing-md, 8px) var(--spacing-xl, 16px);
+    }
+
+    #app-header .header-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-md, 8px);
+        padding: var(--spacing-md, 8px) 0;
+    }
+
+    #app-header .header-left,
+    #app-header .header-right {
+        flex-wrap: wrap;
+        gap: var(--spacing-md, 8px);
+    }
+
+    #app-header .header-right {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    #app-header nav {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 2px;
+    }
+
+    #app-header h1 {
+        font-size: var(--text-md, 16px);
+    }
+}

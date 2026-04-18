@@ -24,5 +24,7 @@ if [ ! -d "$APP_STATIC" ]; then
 fi
 
 mkdir -p "$APP_STATIC/shared-ui"
+# app-switcher also contains the shared Pipelet header skin
+# (pipelet-header.css) so the existing sync path stays backward compatible.
 rsync -a --delete "$SRC/app-switcher" "$APP_STATIC/shared-ui/"
 echo "shared-ui synced to $APP_STATIC/shared-ui/"

@@ -10,6 +10,7 @@ pipelet-shared-ui/
 │   ├── apps.json          Source of truth for tile list
 │   ├── app-switcher.html  Jinja2 include — renders the trigger + panel
 │   ├── app-switcher.css   Prefixed .pipelet-switcher-* styles
+│   ├── pipelet-header.css Shared #app-header + prefs-menu skin
 │   ├── app-switcher.js    Vanilla ES5, no dependencies
 │   ├── flask_helper.py    Drop-in Flask registration helper
 │   └── icons/             Momentum lightBronzeWebex icons (self-hosted)
@@ -48,8 +49,13 @@ that can be served from each app's `/static/shared-ui/` directory. Intranet-safe
 5. Pull in the CSS/JS once in the page head/foot:
    ```html
    <link rel="stylesheet" href="/static/shared-ui/app-switcher/app-switcher.css">
+   <link rel="stylesheet" href="/static/shared-ui/app-switcher/pipelet-header.css">
    <script src="/static/shared-ui/app-switcher/app-switcher.js"></script>
    ```
+
+   Load `pipelet-header.css` after app-local CSS so the shared visual contract
+   wins for `#app-header`, `.nav-link`, `.prefs-*`, and logo sizing. App code
+   still owns routing, auth, language, and theme behaviour.
 
 ## Tile definitions
 
