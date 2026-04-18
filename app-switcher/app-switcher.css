@@ -28,7 +28,7 @@
     font-family: inherit;
 }
 .pipelet-switcher-trigger:hover {
-    background: rgba(0,0,0,0.04);
+    background: var(--color-bg-active, rgba(0,0,0,0.04));
     color: var(--color-text-primary, rgba(0,0,0,0.92));
 }
 .pipelet-switcher-trigger:focus-visible {
@@ -37,7 +37,7 @@
     box-shadow: 0 0 0 3px rgba(17,112,207,0.15);
 }
 .pipelet-switcher[data-open="true"] .pipelet-switcher-trigger {
-    background: rgba(0,0,0,0.06);
+    background: var(--color-bg-active, rgba(0,0,0,0.06));
     color: var(--color-text-primary, rgba(0,0,0,0.92));
 }
 
@@ -64,8 +64,8 @@
     z-index: 2000;
     width: 460px;
     padding: 16px 14px 18px;
-    background-color: #ffffff;
-    border: 1px solid rgba(0,0,0,0.12);
+    background-color: var(--color-bg-primary, #ffffff);
+    border: 1px solid var(--color-border, rgba(0,0,0,0.12));
     border-radius: 14px;
     /* Stronger shadow so the panel reads clearly on cream / bronze
        backgrounds where plain white otherwise blends in. */
@@ -92,7 +92,7 @@
 
 .pipelet-switcher-panel-header {
     padding: 4px 8px 12px;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid var(--color-border-tertiary, rgba(0,0,0,0.06));
     margin-bottom: 8px;
 }
 .pipelet-switcher-panel-title {
@@ -130,11 +130,11 @@
     cursor: pointer;
 }
 .pipelet-switcher-tile:hover {
-    background: rgba(17,112,207,0.06);
+    background: var(--color-bg-brand-subtle, rgba(17,112,207,0.06));
 }
 .pipelet-switcher-tile:focus-visible {
     outline: none;
-    background: rgba(17,112,207,0.08);
+    background: var(--color-bg-brand-subtle, rgba(17,112,207,0.08));
     box-shadow: inset 0 0 0 2px var(--brand-500, #1170cf);
 }
 .pipelet-switcher-tile:active:not(.is-disabled) {
@@ -194,11 +194,18 @@
 
 /* Current app — subtle highlight, no navigation */
 .pipelet-switcher-tile.is-current {
-    background: rgba(17,112,207,0.10);
+    background: var(--color-bg-brand-subtle, rgba(17,112,207,0.10));
     cursor: default;
 }
 .pipelet-switcher-tile.is-current:hover {
-    background: rgba(17,112,207,0.10);
+    background: var(--color-bg-brand-subtle, rgba(17,112,207,0.10));
+}
+
+[data-theme="dark"] .pipelet-switcher-panel {
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.30),
+        0 16px 34px rgba(0,0,0,0.42),
+        0 32px 56px rgba(0,0,0,0.34);
 }
 
 /* ----- Mobile — panel full-width below trigger ----- */
