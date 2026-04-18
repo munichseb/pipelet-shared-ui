@@ -16,8 +16,14 @@
     align-items: center;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1100;
     border-bottom: 1px solid var(--color-border-secondary, rgba(0,0,0,0.08));
+}
+
+#app-header.cpms-header {
+    position: fixed;
+    left: 0;
+    right: 0;
 }
 
 #app-header::before {
@@ -41,7 +47,9 @@
 }
 
 #app-header .header-left,
-#app-header .header-right {
+#app-header .header-right,
+#app-header .topbar-left,
+#app-header .topbar-right {
     display: flex;
     align-items: center;
     gap: var(--spacing-lg, 12px);
@@ -53,13 +61,24 @@
 }
 
 #app-header .header-brand,
-#app-header a.header-brand {
+#app-header a.header-brand,
+#app-header .topbar-brand,
+#app-header a.topbar-brand {
     display: inline-flex;
     align-items: center;
     gap: var(--spacing-lg, 12px);
     min-width: 0;
     color: inherit;
     text-decoration: none;
+    font-family: var(--font-family-serif, var(--font-serif, Georgia, serif));
+    font-size: var(--text-lg, 17px);
+    font-weight: var(--font-weight-medium, 500);
+    letter-spacing: 0;
+}
+
+#app-header .topbar-brand em {
+    font-style: italic;
+    font-weight: var(--font-weight-bold, 700);
 }
 
 #app-header .header-icon,
@@ -72,7 +91,7 @@
 }
 
 #app-header h1 {
-    font-family: var(--font-family-serif, var(--font-family, Inter, system-ui, sans-serif));
+    font-family: var(--font-family-serif, var(--font-serif, var(--font-family, Inter, system-ui, sans-serif)));
     font-size: var(--text-lg, 18px);
     font-weight: var(--font-weight-medium, 500);
     letter-spacing: 0;
@@ -102,8 +121,18 @@
     min-width: 0;
 }
 
+#app-header .topbar-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs, 4px);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+}
+
 #app-header .nav-link,
-#app-header nav a {
+#app-header .topbar-link {
     color: var(--color-text-secondary, rgba(0,0,0,0.62));
     text-decoration: none;
     padding: var(--spacing-md, 8px) var(--spacing-lg, 12px);
@@ -116,16 +145,70 @@
 }
 
 #app-header .nav-link:hover,
-#app-header nav a:hover {
+#app-header .topbar-link:hover {
     color: var(--color-text-primary, rgba(0,0,0,0.92));
     background: var(--color-bg-active, rgba(0,0,0,0.04));
 }
 
 #app-header .nav-link.active,
-#app-header nav a.active {
+#app-header .topbar-link.active {
     color: var(--color-text-primary, rgba(0,0,0,0.92));
     background: var(--color-bg-active, rgba(0,0,0,0.06));
     font-weight: var(--font-weight-semibold, 600);
+}
+
+#app-header .topbar-link svg {
+    flex-shrink: 0;
+}
+
+#app-header .topbar-user {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-lg, 12px);
+    padding-left: var(--spacing-lg, 12px);
+    border-left: 1px solid var(--color-border-secondary, rgba(0,0,0,0.08));
+    font-size: var(--text-sm, 14px);
+    color: var(--color-text-secondary, rgba(0,0,0,0.62));
+}
+
+#app-header .topbar-user form {
+    display: inline;
+}
+
+#app-header .topbar-logout,
+.header-icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 34px;
+    height: 34px;
+    padding: 0 10px;
+    border: 1px solid var(--color-border-secondary, rgba(0,0,0,0.08));
+    border-radius: var(--radius-md, 8px);
+    background: transparent;
+    color: var(--color-text-secondary, rgba(0,0,0,0.62));
+    cursor: pointer;
+    font-family: inherit;
+    font-size: var(--text-sm, 14px);
+    font-weight: var(--font-weight-semibold, 600);
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+#app-header .topbar-logout:hover,
+.header-icon-button:hover,
+.header-icon-button:focus {
+    background: var(--color-bg-active, rgba(0,0,0,0.04));
+    color: var(--color-text-primary, rgba(0,0,0,0.92));
+    border-color: var(--color-border-primary, rgba(0,0,0,0.14));
+}
+
+.header-icon-button svg,
+.header-icon-button i {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+    line-height: 1;
 }
 
 .prefs-dropdown {
@@ -175,6 +258,10 @@
 }
 
 .prefs-menu.open {
+    display: block;
+}
+
+.prefs-menu[data-open="true"] {
     display: block;
 }
 
@@ -274,7 +361,9 @@
     }
 
     #app-header .header-left,
-    #app-header .header-right {
+    #app-header .header-right,
+    #app-header .topbar-left,
+    #app-header .topbar-right {
         flex-wrap: wrap;
         gap: var(--spacing-md, 8px);
     }
@@ -286,6 +375,11 @@
 
     #app-header nav {
         width: 100%;
+        overflow-x: auto;
+        padding-bottom: 2px;
+    }
+
+    #app-header .topbar-nav {
         overflow-x: auto;
         padding-bottom: 2px;
     }
