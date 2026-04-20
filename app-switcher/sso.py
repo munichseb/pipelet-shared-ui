@@ -19,8 +19,10 @@ Body fields:
                         to a specific destination, preventing cross-tile replay
     iss   : str         source portal id (e.g. "sim") — for audit / logging
 
-TTL is intentionally very short (default 30s) since the link is clicked
-immediately after issuance.
+TTL is short (default 5 min) — the URL is baked into the app-switcher panel
+at page render, so the user might open the switcher minutes after landing
+on the page. 30s was too tight and produced sso-invalid redirects when a
+user paused before clicking.
 """
 from __future__ import annotations
 
@@ -31,7 +33,7 @@ import json
 import time
 from typing import Optional
 
-DEFAULT_TTL_SECONDS = 30
+DEFAULT_TTL_SECONDS = 300
 
 
 def _b64u_encode(raw: bytes) -> str:
