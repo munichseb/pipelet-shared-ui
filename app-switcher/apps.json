@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.2.1",
   "apps": [
     {
       "id": "broker",
@@ -23,7 +23,7 @@
     },
     {
       "id": "emp",
-      "label": "Mini EMSP Service",
+      "label": "EMSP Portal (Simulator)",
       "url": "https://emp.pipelet.com",
       "icon": "contact-card-filled",
       "active": true,
@@ -51,7 +51,7 @@
     },
     {
       "id": "empsim",
-      "label": "EMP Simulator (OCPP)",
+      "label": "EMSP Simulator (OCPI)",
       "url": "https://empsim.pipelet.com",
       "icon": "contact-card",
       "active": true,
