@@ -1,5 +1,5 @@
 {
-  "version": "0.2.1",
+  "version": "0.2.2",
   "apps": [
     {
       "id": "broker",
@@ -91,6 +91,7 @@
       "url": "https://monitor.pipelet.com",
       "icon": "analysis-bold",
       "active": true,
+      "sso": true,
       "hosts": ["monitor.pipelet.com"]
     },
     {
