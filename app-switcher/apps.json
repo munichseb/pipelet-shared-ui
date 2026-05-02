@@ -1,5 +1,5 @@
 {
-  "version": "0.2.2",
+  "version": "0.2.3",
   "apps": [
     {
       "id": "broker",
@@ -55,6 +55,7 @@
       "url": "https://empsim.pipelet.com",
       "icon": "contact-card",
       "active": true,
+      "sso": true,
       "hosts": ["empsim.pipelet.com"]
     },
     {
