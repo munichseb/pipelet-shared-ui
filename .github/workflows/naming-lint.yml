@@ -1,0 +1,33 @@
+name: naming-lint
+
+# Ratchet against NEW identifier drift. Inspects only ADDED lines in the diff,
+# so it never trips on legacy code — it blocks new DB columns / route params
+# that introduce a deprecated alias for a concept that already has a canonical
+# name. See NAMING.md (suite glossary). Independent of deploy.yml: a failure
+# is a visible signal and does NOT block deploys (elevate to a required check
+# via branch protection if you want a hard gate).
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  naming-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Determine diff base
+        id: base
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "base=${{ github.event.pull_request.base.sha }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "base=${{ github.event.before }}" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Run naming lint
+        env:
+          NAMING_LINT_BASE: ${{ steps.base.outputs.base }}
+        run: python3 tools/naming_lint.py
