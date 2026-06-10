@@ -46,6 +46,11 @@ DEPRECATED_WARN = {
     "wallbox_id": "chargepoint_id",
     "single_uuid": "rfid_uid",
     "rfid_uuid": "rfid_uid",
+    # WS4 evse_id type-split (NAMING.md §3): snake_case evse_id is overloaded
+    # (OCPI string vs INT row-PK). Prefer the disambiguated names. Warn-only:
+    # the protocol/wire fields evseId/EVSEId lowercase to 'evseid' (no match),
+    # and legacy evse_id dict keys are intentionally kept for back-compat.
+    "evse_id": "evse_ocpi_id (OCPI string) or evse_row_id (INT row-PK)",
 }
 
 CODE_EXT = (".py", ".js", ".ts", ".jsx", ".tsx")
