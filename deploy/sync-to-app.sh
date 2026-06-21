@@ -27,4 +27,8 @@ mkdir -p "$APP_STATIC/shared-ui"
 # app-switcher also contains the shared Pipelet header skin/behaviour
 # (pipelet-header.css/js) so the existing sync path stays backward compatible.
 rsync -a --delete "$SRC/app-switcher" "$APP_STATIC/shared-ui/"
+# Naturalist domain "specimen" illustration sprite (currentColor, theme-coloured)
+if [ -d "$SRC/specimen" ]; then
+    rsync -a --delete "$SRC/specimen" "$APP_STATIC/shared-ui/"
+fi
 echo "shared-ui synced to $APP_STATIC/shared-ui/"
