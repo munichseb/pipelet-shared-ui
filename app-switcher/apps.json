@@ -1,5 +1,5 @@
 {
-  "version": "0.2.3",
+  "version": "0.2.4",
   "apps": [
     {
       "id": "broker",
@@ -103,6 +103,26 @@
       "active": true,
       "sso": true,
       "hosts": ["developer.pipelet.com"]
+    },
+    {
+      "id": "billing",
+      "label": "Billing",
+      "url": "https://billing.pipelet.com",
+      "icon": "align-filled",
+      "active": true,
+      "pro": true,
+      "sso": true,
+      "hosts": ["billing.pipelet.com"]
+    },
+    {
+      "id": "admin",
+      "label": "Admin Console",
+      "url": "https://admin.pipelet.com",
+      "icon": "apps",
+      "active": true,
+      "pro": true,
+      "sso": true,
+      "hosts": ["admin.pipelet.com"]
     },
     {
       "id": "www",

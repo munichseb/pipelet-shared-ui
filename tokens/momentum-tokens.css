@@ -1,0 +1,463 @@
+/* ================================================================
+   Pipelet Design Tokens — Momentum lightBronzeWebex
+   Shared design system for all pipelet-apps
+   Source: Momentum Design (momentum.design), theme lightBronzeWebex
+
+   CANONICAL SINGLE SOURCE. Do not fork per-app.
+   Synced to every app at deploy time by deploy/sync-to-app.sh →
+   /opt/pipelet-apps/<app>/static/shared-ui/tokens/momentum-tokens.css
+   Apps must <link> the synced copy, not a local fork. Legacy per-app
+   copies (untitled-ui-tokens.css) are being retired onto this file.
+   ================================================================ */
+
+:root {
+    /* ============================================================
+       TYPOGRAPHY
+       ============================================================ */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --font-family-serif: 'GT Alpina', 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --font-family-mono: 'JetBrains Mono', 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+
+    /* Font Weights */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Font Sizes */
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-md: 16px;
+    --text-lg: 18px;
+    --text-xl: 20px;
+    --display-xs: 24px;
+    --display-sm: 30px;
+    --display-md: 36px;
+    --display-lg: 48px;
+    --display-xl: 60px;
+    --display-2xl: 72px;
+
+    /* Line Heights */
+    --leading-xs: 18px;
+    --leading-sm: 20px;
+    --leading-md: 24px;
+    --leading-lg: 28px;
+    --leading-xl: 30px;
+    --leading-display-xs: 32px;
+    --leading-display-sm: 38px;
+    --leading-display-md: 44px;
+    --leading-display-lg: 60px;
+    --leading-display-xl: 72px;
+    --leading-display-2xl: 90px;
+
+    /* ============================================================
+       SPACING
+       ============================================================ */
+    --spacing-none: 0px;
+    --spacing-xxs: 2px;
+    --spacing-xs: 4px;
+    --spacing-sm: 6px;
+    --spacing-md: 8px;
+    --spacing-lg: 12px;
+    --spacing-xl: 16px;
+    --spacing-2xl: 20px;
+    --spacing-3xl: 24px;
+    --spacing-4xl: 32px;
+    --spacing-5xl: 40px;
+    --spacing-6xl: 48px;
+    --spacing-7xl: 64px;
+    --spacing-8xl: 80px;
+    --spacing-9xl: 96px;
+    --spacing-10xl: 128px;
+    --spacing-11xl: 160px;
+
+    /* ============================================================
+       BORDER RADIUS
+       ============================================================ */
+    --radius-none: 0px;
+    --radius-xxs: 2px;
+    --radius-xs: 4px;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 10px;
+    --radius-xl: 12px;
+    --radius-2xl: 16px;
+    --radius-3xl: 20px;
+    --radius-4xl: 24px;
+    --radius-full: 9999px;
+
+    /* ============================================================
+       SHADOWS (Momentum light)
+       ============================================================ */
+    --shadow-xs: 0px 1px 2px rgba(16, 24, 40, 0.04);
+    --shadow-sm: 0px 1px 2px rgba(16, 24, 40, 0.05), 0px 1px 3px rgba(16, 24, 40, 0.08);
+    --shadow-md: 0px 2px 4px rgba(16, 24, 40, 0.04), 0px 4px 8px rgba(16, 24, 40, 0.08);
+    --shadow-lg: 0px 4px 6px rgba(16, 24, 40, 0.02), 0px 12px 16px rgba(16, 24, 40, 0.06);
+    --shadow-xl: 0px 8px 8px rgba(16, 24, 40, 0.02), 0px 20px 24px rgba(16, 24, 40, 0.06);
+    --shadow-2xl: 0px 24px 48px rgba(16, 24, 40, 0.12);
+    --shadow-3xl: 0px 32px 64px rgba(16, 24, 40, 0.16);
+
+    /* Ring / Focus (Momentum Webex blue) */
+    --ring-brand: 0px 0px 0px 4px rgba(17, 112, 207, 0.20);
+    --ring-gray: 0px 0px 0px 4px rgba(152, 162, 179, 0.14);
+    --ring-error: 0px 0px 0px 4px rgba(219, 31, 46, 0.20);
+
+    /* ============================================================
+       COLOR PRIMITIVES — Gray (Momentum light)
+       ============================================================ */
+    --gray-25: #FDFDFD;
+    --gray-50: #FAFAFA;
+    --gray-100: #F5F5F5;
+    --gray-200: #E9EAEB;
+    --gray-300: #D5D7DA;
+    --gray-400: #A4A7AE;
+    --gray-500: #717680;
+    --gray-600: #535862;
+    --gray-700: #414651;
+    --gray-800: #252B37;
+    --gray-900: #181D27;
+    --gray-950: #0A0D12;
+
+    /* Gray (Dark Mode) */
+    --gray-dark-25: #FAFAFA;
+    --gray-dark-50: #F5F5F6;
+    --gray-dark-100: #F0F1F1;
+    --gray-dark-200: #ECECED;
+    --gray-dark-300: #CECFD2;
+    --gray-dark-400: #94969C;
+    --gray-dark-500: #85888E;
+    --gray-dark-600: #61646C;
+    --gray-dark-700: #333741;
+    --gray-dark-800: #1F242F;
+    --gray-dark-900: #161B26;
+    --gray-dark-950: #0C0E12;
+
+    /* ============================================================
+       COLOR PRIMITIVES — Brand (Momentum Webex Blue)
+       ============================================================ */
+    --brand-25: #f0f7ff;
+    --brand-50: #dbf0ff;
+    --brand-100: #bfe3ff;
+    --brand-200: #8ecbff;
+    --brand-300: #64b4fa;
+    --brand-400: #3492eb;
+    --brand-500: #1170cf;
+    --brand-600: #0353a8;
+    --brand-700: #063a75;
+    --brand-800: #0a274a;
+    --brand-900: #091b33;
+    --brand-950: #060f1e;
+
+    /* ============================================================
+       COLOR PRIMITIVES — Error (Momentum red)
+       ============================================================ */
+    --error-25: #FFFBFA;
+    --error-50: #ffe8ea;
+    --error-100: #FEE4E2;
+    --error-200: #FECDCA;
+    --error-300: #FDA29B;
+    --error-400: #f55868;
+    --error-500: #db1f2e;
+    --error-600: #ab0a15;
+    --error-700: #780d13;
+    --error-800: #560d12;
+    --error-900: #3d0a0e;
+    --error-950: #2a0709;
+
+    /* ============================================================
+       COLOR PRIMITIVES — Warning (Momentum yellow/orange)
+       ============================================================ */
+    --warning-25: #FFFCF5;
+    --warning-50: #ffebc2;
+    --warning-100: #FEF0C7;
+    --warning-200: #FEDF89;
+    --warning-300: #FEC84B;
+    --warning-400: #FDB022;
+    --warning-500: #a65e00;
+    --warning-600: #7d4705;
+    --warning-700: #5c3504;
+    --warning-800: #432704;
+    --warning-900: #301c03;
+    --warning-950: #1f1202;
+
+    /* ============================================================
+       COLOR PRIMITIVES — Success (Momentum green)
+       ============================================================ */
+    --success-25: #F6FEF9;
+    --success-50: #cef5eb;
+    --success-100: #D1FADF;
+    --success-200: #A6F4C5;
+    --success-300: #6CE9A6;
+    --success-400: #32D583;
+    --success-500: #1d805f;
+    --success-600: #185e46;
+    --success-700: #134231;
+    --success-800: #0e3024;
+    --success-900: #0a2119;
+    --success-950: #071610;
+
+    /* ============================================================
+       SEMANTIC COLOR TOKENS (Light Mode — lightBronzeWebex)
+       ============================================================ */
+
+    /* Text */
+    --color-text-primary: var(--gray-900);
+    --color-text-secondary: var(--gray-600);
+    --color-text-tertiary: var(--gray-500);
+    --color-text-quaternary: var(--gray-400);
+    --color-text-white: #FFFFFF;
+    --color-text-disabled: var(--gray-400);
+    --color-text-placeholder: var(--gray-400);
+    --color-text-brand-primary: var(--brand-600);
+    --color-text-brand-secondary: var(--brand-700);
+    --color-text-error: var(--error-600);
+    --color-text-warning: var(--warning-600);
+    --color-text-success: var(--success-600);
+
+    /* Backgrounds (lightBronzeWebex) */
+    --color-bg-primary: #FFFFFF;
+    --color-bg-secondary: var(--gray-50);
+    --color-bg-tertiary: var(--gray-100);
+    --color-bg-quaternary: var(--gray-200);
+    --color-bg-active: var(--gray-50);
+    --color-bg-disabled: var(--gray-100);
+    --color-bg-overlay: rgba(7, 16, 28, 0.40);
+    --color-bg-brand-primary: var(--brand-500);
+    --color-bg-brand-secondary: var(--brand-400);
+    --color-bg-brand-subtle: var(--brand-25);
+    --color-bg-error-primary: var(--error-500);
+    --color-bg-error-secondary: var(--error-400);
+    --color-bg-error-subtle: var(--error-25);
+    --color-bg-warning-primary: var(--warning-500);
+    --color-bg-warning-secondary: var(--warning-400);
+    --color-bg-warning-subtle: var(--warning-25);
+    --color-bg-success-primary: var(--success-500);
+    --color-bg-success-secondary: var(--success-400);
+    --color-bg-success-subtle: var(--success-25);
+
+    /* Bronze gradient (lightBronzeWebex signature) */
+    --color-bg-gradient: linear-gradient(180deg, #f5efe4 0%, #ffffff 100%);
+    --color-bg-glass: rgba(255, 255, 255, 0.82);
+
+    /* Borders */
+    --color-border: var(--gray-200);
+    --color-border-primary: var(--gray-300);
+    --color-border-secondary: var(--gray-200);
+    --color-border-tertiary: var(--gray-100);
+    --color-border-disabled: var(--gray-300);
+    --color-border-brand: var(--brand-300);
+    --color-border-brand-solid: var(--brand-500);
+    --color-border-error: var(--error-300);
+    --color-border-error-solid: var(--error-500);
+
+    /* Foreground (Icons) */
+    --color-fg-primary: var(--gray-900);
+    --color-fg-secondary: var(--gray-700);
+    --color-fg-tertiary: var(--gray-600);
+    --color-fg-quaternary: var(--gray-500);
+    --color-fg-quinary: var(--gray-400);
+    --color-fg-white: #FFFFFF;
+    --color-fg-disabled: var(--gray-400);
+    --color-fg-brand-primary: var(--brand-500);
+    --color-fg-brand-secondary: var(--brand-400);
+    --color-fg-error-primary: var(--error-500);
+    --color-fg-error-secondary: var(--error-400);
+    --color-fg-warning-primary: var(--warning-500);
+    --color-fg-warning-secondary: var(--warning-400);
+    --color-fg-success-primary: var(--success-500);
+    --color-fg-success-secondary: var(--success-400);
+
+    /* ============================================================
+       COMPONENT TOKENS
+       ============================================================ */
+
+    /* Buttons — Primary (Momentum lightBronzeWebex: near-black) */
+    --button-primary-bg: rgba(0, 0, 0, 0.92);
+    --button-primary-bg-hover: rgba(0, 0, 0, 0.78);
+    --button-primary-fg: #FFFFFF;
+    --button-primary-border: rgba(0, 0, 0, 0.92);
+
+    /* Buttons — Secondary Gray */
+    --button-secondary-bg: #FFFFFF;
+    --button-secondary-bg-hover: var(--gray-50);
+    --button-secondary-fg: var(--gray-700);
+    --button-secondary-border: var(--gray-300);
+
+    /* Buttons — Secondary Color */
+    --button-secondary-color-bg: #FFFFFF;
+    --button-secondary-color-bg-hover: var(--brand-50);
+    --button-secondary-color-fg: var(--brand-700);
+    --button-secondary-color-border: var(--brand-300);
+
+    /* Buttons — Tertiary */
+    --button-tertiary-bg: transparent;
+    --button-tertiary-bg-hover: var(--gray-50);
+    --button-tertiary-fg: var(--gray-600);
+
+    /* Buttons — Accent (blue, for links/CTAs that need color) */
+    --button-accent-bg: var(--brand-500);
+    --button-accent-bg-hover: var(--brand-600);
+    --button-accent-fg: #FFFFFF;
+    --button-accent-border: var(--brand-500);
+
+    /* Buttons — Destructive */
+    --button-error-bg: var(--error-500);
+    --button-error-bg-hover: var(--error-600);
+    --button-error-fg: #FFFFFF;
+    --button-error-border: var(--error-500);
+
+    /* Input */
+    --input-bg: #FFFFFF;
+    --input-border: var(--gray-300);
+    --input-border-hover: var(--gray-400);
+    --input-border-focus: var(--brand-300);
+    --input-ring-focus: var(--ring-brand);
+    --input-text: var(--gray-900);
+    --input-placeholder: var(--gray-500);
+    --input-disabled-bg: var(--gray-50);
+    --input-disabled-border: var(--gray-300);
+
+    /* Badge / Tag */
+    --badge-brand-bg: var(--brand-50);
+    --badge-brand-fg: var(--brand-700);
+    --badge-brand-border: var(--brand-200);
+    --badge-gray-bg: var(--gray-50);
+    --badge-gray-fg: var(--gray-700);
+    --badge-gray-border: var(--gray-200);
+    --badge-error-bg: var(--error-50);
+    --badge-error-fg: var(--error-600);
+    --badge-error-border: var(--error-200);
+    --badge-warning-bg: var(--warning-50);
+    --badge-warning-fg: var(--warning-600);
+    --badge-warning-border: var(--warning-200);
+    --badge-success-bg: var(--success-50);
+    --badge-success-fg: var(--success-600);
+    --badge-success-border: var(--success-200);
+
+    /* Toggle */
+    --toggle-bg-off: var(--gray-100);
+    --toggle-bg-on: var(--brand-500);
+    --toggle-knob: #FFFFFF;
+
+    /* Avatar / Indicator */
+    --indicator-online: var(--success-500);
+    --indicator-offline: var(--gray-300);
+}
+
+/* ================================================================
+   DARK MODE OVERRIDES
+   ================================================================ */
+[data-theme="dark"] {
+    --shadow-xs: 0px 1px 2px rgba(0, 0, 0, 0.16);
+    --shadow-sm: 0px 1px 2px rgba(0, 0, 0, 0.20), 0px 1px 3px rgba(0, 0, 0, 0.24);
+    --shadow-md: 0px 2px 4px rgba(0, 0, 0, 0.20), 0px 4px 8px rgba(0, 0, 0, 0.24);
+    --shadow-lg: 0px 4px 6px rgba(0, 0, 0, 0.10), 0px 12px 16px rgba(0, 0, 0, 0.20);
+    --shadow-xl: 0px 8px 8px rgba(0, 0, 0, 0.10), 0px 20px 24px rgba(0, 0, 0, 0.20);
+    --shadow-2xl: 0px 24px 48px rgba(0, 0, 0, 0.36);
+    --shadow-3xl: 0px 32px 64px rgba(0, 0, 0, 0.48);
+
+    --ring-brand: 0px 0px 0px 4px rgba(52, 146, 235, 0.30);
+    --ring-gray: 0px 0px 0px 4px rgba(152, 162, 179, 0.20);
+    --ring-error: 0px 0px 0px 4px rgba(245, 88, 104, 0.30);
+
+    --color-text-primary: var(--gray-dark-50);
+    --color-text-secondary: var(--gray-dark-300);
+    --color-text-tertiary: var(--gray-dark-400);
+    --color-text-quaternary: var(--gray-dark-500);
+    --color-text-disabled: var(--gray-dark-600);
+    --color-text-placeholder: var(--gray-dark-500);
+    --color-text-brand-primary: var(--brand-300);
+    --color-text-brand-secondary: var(--brand-200);
+    --color-text-error: var(--error-400);
+    --color-text-warning: var(--warning-400);
+    --color-text-success: var(--success-400);
+
+    --color-bg-primary: var(--gray-dark-950);
+    --color-bg-secondary: var(--gray-dark-900);
+    --color-bg-tertiary: var(--gray-dark-800);
+    --color-bg-quaternary: var(--gray-dark-700);
+    --color-bg-active: var(--gray-dark-800);
+    --color-bg-disabled: var(--gray-dark-800);
+    --color-bg-overlay: rgba(0, 0, 0, 0.70);
+    --color-bg-brand-primary: var(--brand-500);
+    --color-bg-brand-secondary: var(--brand-400);
+    --color-bg-brand-subtle: rgba(17, 112, 207, 0.12);
+    --color-bg-error-subtle: rgba(219, 31, 46, 0.12);
+    --color-bg-warning-subtle: rgba(166, 94, 0, 0.12);
+    --color-bg-success-subtle: rgba(29, 128, 95, 0.12);
+    --color-bg-gradient: linear-gradient(180deg, #0C0E12 0%, #161B26 100%);
+    --color-bg-glass: rgba(12, 14, 18, 0.82);
+
+    --color-border: var(--gray-dark-700);
+    --color-border-primary: var(--gray-dark-700);
+    --color-border-secondary: var(--gray-dark-700);
+    --color-border-tertiary: var(--gray-dark-800);
+    --color-border-disabled: var(--gray-dark-700);
+    --color-border-brand: rgba(17, 112, 207, 0.40);
+    --color-border-brand-solid: var(--brand-400);
+    --color-border-error: rgba(219, 31, 46, 0.40);
+    --color-border-error-solid: var(--error-400);
+
+    --color-fg-primary: var(--gray-dark-25);
+    --color-fg-secondary: var(--gray-dark-200);
+    --color-fg-tertiary: var(--gray-dark-300);
+    --color-fg-quaternary: var(--gray-dark-400);
+    --color-fg-quinary: var(--gray-dark-500);
+    --color-fg-disabled: var(--gray-dark-600);
+    --color-fg-brand-primary: var(--brand-300);
+    --color-fg-brand-secondary: var(--brand-200);
+    --color-fg-error-primary: var(--error-400);
+    --color-fg-warning-primary: var(--warning-400);
+    --color-fg-success-primary: var(--success-400);
+
+    --button-primary-bg: rgba(255, 255, 255, 0.92);
+    --button-primary-bg-hover: rgba(255, 255, 255, 0.78);
+    --button-primary-fg: #0C0E12;
+    --button-primary-border: rgba(255, 255, 255, 0.92);
+
+    --button-secondary-bg: var(--gray-dark-800);
+    --button-secondary-bg-hover: var(--gray-dark-700);
+    --button-secondary-fg: var(--gray-dark-200);
+    --button-secondary-border: var(--gray-dark-700);
+
+    --button-secondary-color-bg: var(--gray-dark-800);
+    --button-secondary-color-bg-hover: rgba(17, 112, 207, 0.15);
+    --button-secondary-color-fg: var(--brand-200);
+    --button-secondary-color-border: rgba(17, 112, 207, 0.40);
+
+    --button-tertiary-bg: transparent;
+    --button-tertiary-bg-hover: var(--gray-dark-800);
+    --button-tertiary-fg: var(--gray-dark-300);
+
+    --input-bg: var(--gray-dark-900);
+    --input-border: var(--gray-dark-700);
+    --input-border-hover: var(--gray-dark-600);
+    --input-border-focus: var(--brand-400);
+    --input-text: var(--gray-dark-50);
+    --input-placeholder: var(--gray-dark-500);
+    --input-disabled-bg: var(--gray-dark-800);
+    --input-disabled-border: var(--gray-dark-700);
+
+    --badge-brand-bg: rgba(17, 112, 207, 0.15);
+    --badge-brand-fg: var(--brand-200);
+    --badge-brand-border: rgba(17, 112, 207, 0.30);
+    --badge-gray-bg: var(--gray-dark-800);
+    --badge-gray-fg: var(--gray-dark-300);
+    --badge-gray-border: var(--gray-dark-700);
+    --badge-error-bg: rgba(219, 31, 46, 0.15);
+    --badge-error-fg: var(--error-300);
+    --badge-error-border: rgba(219, 31, 46, 0.30);
+    --badge-warning-bg: rgba(166, 94, 0, 0.15);
+    --badge-warning-fg: var(--warning-300);
+    --badge-warning-border: rgba(166, 94, 0, 0.30);
+    --badge-success-bg: rgba(29, 128, 95, 0.15);
+    --badge-success-fg: var(--success-300);
+    --badge-success-border: rgba(29, 128, 95, 0.30);
+
+    --toggle-bg-off: var(--gray-dark-700);
+    --toggle-bg-on: var(--brand-500);
+    --toggle-knob: #FFFFFF;
+
+    --indicator-online: var(--success-400);
+    --indicator-offline: var(--gray-dark-600);
+}
