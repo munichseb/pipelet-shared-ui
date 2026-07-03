@@ -4,10 +4,13 @@
    Source: Momentum Design (momentum.design), theme lightBronzeWebex
 
    CANONICAL SINGLE SOURCE. Do not fork per-app.
-   Synced to every app at deploy time by deploy/sync-to-app.sh →
-   /opt/pipelet-apps/<app>/static/shared-ui/tokens/momentum-tokens.css
-   Apps must <link> the synced copy, not a local fork. Legacy per-app
-   copies (untitled-ui-tokens.css) are being retired onto this file.
+   Lives in app-switcher/ because the live pipelet-deploy only rsyncs the
+   app-switcher/ subdir into each app's static/shared-ui/ — so this is the
+   one shared-ui location guaranteed present in every app. Apps <link>:
+     shared-ui/app-switcher/momentum-tokens.css
+   Legacy per-app forks (untitled-ui-tokens.css) are being retired onto this.
+   NOTE: live /usr/local/bin/pipelet-deploy inlines a stale sync (only
+   app-switcher/, not tokens/ or specimen/) — infra follow-up needed.
    ================================================================ */
 
 :root {

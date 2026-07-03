@@ -31,9 +31,4 @@ rsync -a --delete "$SRC/app-switcher" "$APP_STATIC/shared-ui/"
 if [ -d "$SRC/specimen" ]; then
     rsync -a --delete "$SRC/specimen" "$APP_STATIC/shared-ui/"
 fi
-# Canonical Momentum design tokens (single source; apps link the synced copy
-# at shared-ui/tokens/momentum-tokens.css instead of a local fork).
-if [ -d "$SRC/tokens" ]; then
-    rsync -a --delete "$SRC/tokens" "$APP_STATIC/shared-ui/"
-fi
 echo "shared-ui synced to $APP_STATIC/shared-ui/"
