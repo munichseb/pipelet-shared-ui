@@ -31,4 +31,11 @@ rsync -a --delete "$SRC/app-switcher" "$APP_STATIC/shared-ui/"
 if [ -d "$SRC/specimen" ]; then
     rsync -a --delete "$SRC/specimen" "$APP_STATIC/shared-ui/"
 fi
+# Momentum design tokens — canonical single source. Apps <link>
+# shared-ui/tokens/momentum-tokens.css. Guarded so this stays a no-op on
+# checkouts that predate the tokens/ dir (tokens then still ride inside
+# app-switcher/ as before).
+if [ -d "$SRC/tokens" ]; then
+    rsync -a --delete "$SRC/tokens" "$APP_STATIC/shared-ui/"
+fi
 echo "shared-ui synced to $APP_STATIC/shared-ui/"
